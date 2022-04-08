@@ -1,6 +1,8 @@
 ﻿namespace Logic
 {
-    public class Users
+    public class User
     {
+        public string Name { get; set; }
+        
     }
 }
