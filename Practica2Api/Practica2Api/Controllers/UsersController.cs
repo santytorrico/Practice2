@@ -24,19 +24,19 @@ namespace Practica2Api.Controllers
             return Ok(_userManager.GetUsers());
         }
         [HttpPost]
-        public IActionResult PostUsers()
+        public IActionResult PostUsers(User user)
         {
-            return Ok();
+            return Ok(_userManager.PostUser(user));
         }
         [HttpPut]
-        public IActionResult PutUsers()
+        public IActionResult PutUsers(User user)
         {
-            return Ok();
+            return Ok(_userManager.PutUser(user));
         }
         [HttpDelete]
-        public IActionResult DeleteUsers()
+        public IActionResult DeleteUsers(User user)
         {
-            return Ok();
+            return Ok(_userManager.DeleteUser(user));
         }
     }
 }

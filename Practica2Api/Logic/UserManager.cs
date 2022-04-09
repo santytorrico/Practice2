@@ -10,9 +10,9 @@ namespace Logic
         {
             Users = new List<User>()
             {
-                 new User(){ Name= "Santiago"},
-                new User(){ Name= "Marcelo"},
-                new User(){ Name= "Sandro"}
+                 new User(){ Name= "Santiago", Id=1},
+                new User(){ Name= "Marcelo", Id=2},
+                new User(){ Name= "Sandro",Id=3}
             };
         }
         public List<User> GetUsers()
@@ -28,12 +28,15 @@ namespace Logic
        
         public User PutUser(User user)
         {
-            return null;
+            User userToUpdate = Users.Find(u => u.Id == user.Id);
+            userToUpdate.Name = user.Name ?? userToUpdate.Name;
+            userToUpdate.Id = user.Id ?? userToUpdate.Id;
+            return user;
         }
        
         public User DeleteUser(User user)
         {
-            User userfound = Users.Find(u => u.Name == user.Name);
+            User userfound = Users.Find(u => u.Id == user.Id);
             Users.Remove(userfound);
             return user;
         }
