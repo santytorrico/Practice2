@@ -29,9 +29,12 @@ namespace Logic
         public User PutUser(User user)
         {
             User userToUpdate = Users.Find(u => u.Id == user.Id);
-            userToUpdate.Name = user.Name ?? userToUpdate.Name;
-            userToUpdate.Id = user.Id ?? userToUpdate.Id;
-            return user;
+            if (userToUpdate != null) {
+                userToUpdate.Name = user.Name;
+                userToUpdate.Id = user.Id;
+            }
+            
+            return userToUpdate;
         }
        
         public User DeleteUser(User user)

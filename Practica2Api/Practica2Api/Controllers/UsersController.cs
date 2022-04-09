@@ -31,7 +31,15 @@ namespace Practica2Api.Controllers
         [HttpPut]
         public IActionResult PutUsers(User user)
         {
-            return Ok(_userManager.PutUser(user));
+            if (_userManager.PutUser(user) != null)
+            {
+                return Ok(_userManager.PutUser(user));
+            }
+            else
+            {
+                return NotFound();
+            }
+            
         }
         [HttpDelete]
         public IActionResult DeleteUsers(User user)
